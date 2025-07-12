@@ -26,6 +26,7 @@ const Intro = ({ setIntroFinished, imageRef }: IntroProps) => {
 
       tl.addLabel("startAnimation")
         .to(span1.current, {
+          delay: 0.1,
           x: "-70%",
           duration: 1,
           ease: "power2.out",
@@ -124,7 +125,7 @@ const Intro = ({ setIntroFinished, imageRef }: IntroProps) => {
           ></path>
         </svg>
       </div>
-      <div className="w-full h-full text-xLarge font-bold tracking-tighter leading-none flex justify-center items-center">
+      <div className="relative w-full h-full text-xLarge font-bold tracking-tighter leading-none flex justify-center items-center">
         <span ref={span1} className="inline-block">
           OAK
         </span>
