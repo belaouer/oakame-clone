@@ -7,9 +7,10 @@ import Header from "./Header";
 interface HeroProps {
   introFinished: boolean;
   imageRef: React.RefObject<HTMLImageElement | null>;
+  setHeroFinished: React.Dispatch<React.SetStateAction<boolean>>;
 }
 gsap.registerPlugin(Flip);
-const Hero = ({ introFinished, imageRef }: HeroProps) => {
+const Hero = ({ introFinished, setHeroFinished, imageRef }: HeroProps) => {
   const borderRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const hasNotifiedHeader = useRef(false);
@@ -63,6 +64,7 @@ const Hero = ({ introFinished, imageRef }: HeroProps) => {
                 setCanAnimHeader(true);
               }
             },
+            onComplete: () => setHeroFinished(true),
           },
           "+="
         );

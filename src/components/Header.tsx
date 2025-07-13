@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   UserIcon,
   ShoppingBagIcon,
@@ -8,6 +8,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import NavItem from "./NavItem";
 
 interface HeaderProps {
   canAnimHeader: boolean;
@@ -16,6 +17,7 @@ interface HeaderProps {
 
 const Header = ({ canAnimHeader, tl }: HeaderProps) => {
   const headerRef = useRef<HTMLElement>(null);
+
   useGSAP(() => {
     if (canAnimHeader) {
       console.log("je suis la");
@@ -23,6 +25,7 @@ const Header = ({ canAnimHeader, tl }: HeaderProps) => {
       tl.to(headerRef.current, { y: "0%", duration: 0.8, ease: "power2.in" });
     }
   }, [canAnimHeader]);
+
   return (
     <header
       ref={headerRef}
@@ -71,31 +74,30 @@ const Header = ({ canAnimHeader, tl }: HeaderProps) => {
             ></path>
           </svg>
         </div>
-        <div className="col-span-4 cursor-pointer h-full flex justify-center items-center border-r-[1px]">
-          PRODUCTS <ChevronDownIcon className="w-4" />
+        <div className="col-span-4  h-full flex justify-center items-center border-r-[1px]">
+          <NavItem text="PRODUITS" isCheveron />
         </div>
 
-        {/* Ajoute ici tes autres boutons ou contenu */}
         <div className="col-span-3 col-start-[14]  h-full flex justify-center items-center border-l-[1px]">
-          NOTRE CONCEPT
+          <NavItem text="NOTRE CONCEPT" />
         </div>
         <div className="col-span-2 col-start-[17] h-full flex justify-center items-center border-l-[1px]">
-          LOOKBOOK
+          <NavItem text="LOOK BOOK" />
         </div>
         <div className="col-span-3 col-start-[19] h-full flex justify-center items-center border-l-[1px]">
-          ESPACE PRO
+          <NavItem text="ESPACE PRO" />
         </div>
         <div className="col-span-1 col-start-[22] h-full flex justify-center items-center border-l-[1px]">
-          <UserIcon className="w-5" />
+          <NavItem Icon={UserIcon} isIcon />
         </div>
         <div className="relative col-span-1 col-start-[23] h-full flex justify-center items-center border-l-[1px]">
-          <ShoppingBagIcon className="w-5" />
+          <NavItem Icon={ShoppingBagIcon} isIcon />
           <div className="absolute top-0 right-0 bg-[#403a34] text-white px-[5px]">
             0
           </div>
         </div>
         <div className="col-span-[1.5] col-start-[24] h-full flex justify-center items-center border-l-[1px]">
-          FR <ChevronDownIcon className="w-4" />
+          <NavItem text="FR" isCheveron />
         </div>
       </div>
     </header>

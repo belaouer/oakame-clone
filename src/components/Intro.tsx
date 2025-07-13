@@ -24,9 +24,9 @@ const Intro = ({ setIntroFinished, imageRef }: IntroProps) => {
       // Valeur animée pour le compteur
       const counter = { value: 0 };
 
-      tl.addLabel("startAnimation")
+      tl.addLabel("startAnimation", 0.3)
         .to(span1.current, {
-          delay: 0.1,
+          delay: 0.3,
           x: "-70%",
           duration: 1,
           ease: "power2.out",
