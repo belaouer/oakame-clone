@@ -8,7 +8,32 @@
   --text-xLarge: clamp(3rem, 12vw, 24.06rem);
 }
 
+:root {
+  --size: 375;
+}
+
+html {
+  font-size: calc((100vw / var(--size)) * 10);
+}
+
 .border-container,
 .nav-item-wrapper {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --size: 768;
+  }
+}
+@media (min-width: 1024px) {
+  :root {
+    --size: 1024;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --size: 1440;
+  }
 }

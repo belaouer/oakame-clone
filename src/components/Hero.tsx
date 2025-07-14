@@ -3,7 +3,8 @@ import gsap from "gsap";
 import { Flip } from "gsap/all";
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
-
+import Image from "next/image";
+import me from "../../public/02.webp";
 interface HeroProps {
   introFinished: boolean;
   imageRef: React.RefObject<HTMLImageElement | null>;
@@ -71,13 +72,27 @@ const Hero = ({ introFinished, setHeroFinished, imageRef }: HeroProps) => {
     }
   }, [introFinished]);
   return (
-    <section className="w-screen h-screen p-8">
-      <div
-        className="border-container w-full h-full relative p-[1px]"
-        ref={borderRef}
-      >
+    <section className="w-screen h-screen lg:p-8">
+      <div className="border-container w-full h-full relative" ref={borderRef}>
         <Header canAnimHeader={canAnimHeader} tl={tl} />
-        <div className="relative w-full h-full" ref={containerRef}></div>
+        <div className="hidden lg:block relative w-full h-full" ref={containerRef}>
+          {/* <div className="absolute  text-white left-0 bottom-0 p-4 flex flex-col justify-center  z-30">
+            <h4 className="text-[1rem] font-mono font-semibold tracking-tighter leading-none">
+              FAUTEUIL
+            </h4>
+            <h1 className="text-[6rem] tracking-tighter  leading-none rotate-x-[80deg] origin-center">
+              BONAPARTE
+            </h1>
+          </div> */}
+        </div>
+        <div className="relative w-full h-full lg:hidden">
+          <Image
+            src={me}
+            fill
+            style={{ objectFit: "cover", objectPosition: "top" }}
+            alt="photo"
+          />
+        </div>
         {/* Bordures animées */}
         <div className="border-top absolute top-0 left-0 h-[1px] w-full bg-black origin-left scale-x-0" />
         <div className="border-bottom absolute bottom-0 right-0 h-[1px] w-full bg-black origin-right scale-x-0" />

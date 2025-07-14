@@ -20,8 +20,6 @@ const Header = ({ canAnimHeader, tl }: HeaderProps) => {
 
   useGSAP(() => {
     if (canAnimHeader) {
-      console.log("je suis la");
-
       tl.to(headerRef.current, { y: "0%", duration: 0.8, ease: "power2.in" });
     }
   }, [canAnimHeader]);
@@ -29,10 +27,10 @@ const Header = ({ canAnimHeader, tl }: HeaderProps) => {
   return (
     <header
       ref={headerRef}
-      className="absolute top-0 left-0 right-0 h-16 m-[1px] bg-[#f6f1eb] border-b-[1px] z-20 font-semibold font-mono leading-[150%] -translate-y-[110%]"
+      className="absolute top-8 left-8 right-8 lg:top-0 lg:left-0 lg:right-0 h-16 m-[1px] bg-[#f6f1eb] border-[1px] lg:border-0 lg:border-b-[1px] lg:border-t-[1px] z-20 font-semibold font-mono leading-[150%] xl:-translate-y-[110%]"
     >
-      <div className="grid grid-cols-[repeat(24,minmax(0,1fr))]  h-full">
-        <div className="col-span-2 cursor-pointer flex justify-center items-center border-r-[1px]  min-h-full">
+      <div className="grid grid-cols-12 lg:grid-cols-[repeat(24,minmax(0,1fr))]  h-full">
+        <div className="hidden xl:flex col-span-2 cursor-pointer  justify-center items-center border-r-[1px]  min-h-full">
           <svg
             width="70"
             height="25"
@@ -74,29 +72,46 @@ const Header = ({ canAnimHeader, tl }: HeaderProps) => {
             ></path>
           </svg>
         </div>
-        <div className="col-span-4  h-full flex justify-center items-center border-r-[1px]">
+        <div className="col-span-2 cursor-pointer flex justify-center items-center border-r-[1px]  min-h-full xl:hidden">
+          <svg
+            width="29"
+            height="23"
+            viewBox="0 0 29 23"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M14.5365 22.9955L15.868 22.5184L17.191 22.995L17.1969 22.9975H22.105C22.1351 22.999 22.1648 22.9999 22.1959 22.9999C22.3519 22.9999 22.508 22.999 22.6636 22.9975H23.596L29.0088 22.9985L19.368 9.18056L13.1724 15.0828L18.5536 22.7046H17.1925L15.8719 21.6853L14.5246 22.7061H13.1719V15.0828V11.2405L17.753 6.8663V6.86531L21.6803 3.12476C21.7015 3.10451 21.7242 3.08476 21.7474 3.06648C23.5007 1.6718 25.1472 0.51714 26.9044 0.293912H26.9439V0.00154264H20.2258V0.292924H20.2629C21.5929 0.442072 22.43 0.954212 22.3707 1.76366C22.3554 1.97355 22.2581 2.16913 22.106 2.31432L17.5832 6.62134L13.1719 0.299838V0.292924H16.91V6.10352e-05H0.0044448V0.292924H3.62005V22.7051H0V22.998H14.5212"
+              fill="#403A34"
+            ></path>
+          </svg>
+        </div>
+        <div className=" h-full col-span-7  flex justify-center items-center cursor-pointer lg:hidden">
+          <p>MENU</p>
+        </div>
+        <div className="hidden lg:flex col-span-4  h-full  justify-center items-center border-r-[1px]">
           <NavItem text="PRODUITS" isCheveron />
         </div>
 
-        <div className="col-span-3 col-start-[14]  h-full flex justify-center items-center border-l-[1px]">
+        <div className="hidden lg:flex col-span-3 col-start-[14]  h-full  justify-center items-center border-l-[1px]">
           <NavItem text="NOTRE CONCEPT" />
         </div>
-        <div className="col-span-2 col-start-[17] h-full flex justify-center items-center border-l-[1px]">
+        <div className="hidden lg:flex col-span-2 col-start-[17] h-full  justify-center items-center border-l-[1px]">
           <NavItem text="LOOK BOOK" />
         </div>
-        <div className="col-span-3 col-start-[19] h-full flex justify-center items-center border-l-[1px]">
+        <div className="hidden lg:flex col-span-3 col-start-[19] h-full  justify-center items-center border-l-[1px]">
           <NavItem text="ESPACE PRO" />
         </div>
-        <div className="col-span-1 col-start-[22] h-full flex justify-center items-center border-l-[1px]">
+        <div className="col-span-1 lg:col-start-[22] h-full flex justify-center items-center border-l-[1px]">
           <NavItem Icon={UserIcon} isIcon />
         </div>
-        <div className="relative col-span-1 col-start-[23] h-full flex justify-center items-center border-l-[1px]">
+        <div className="relative col-span-1 lg:col-start-[23] h-full flex justify-center items-center border-l-[1px]">
           <NavItem Icon={ShoppingBagIcon} isIcon />
           <div className="absolute top-0 right-0 bg-[#403a34] text-white px-[5px]">
             0
           </div>
         </div>
-        <div className="col-span-[1.5] col-start-[24] h-full flex justify-center items-center border-l-[1px]">
+        <div className="col-span-1 lg:col-span-[1.5] lg:col-start-[24] h-full flex justify-center items-center border-l-[1px]">
           <NavItem text="FR" isCheveron />
         </div>
       </div>

@@ -87,7 +87,7 @@ const Intro = ({ setIntroFinished, imageRef }: IntroProps) => {
   return (
     <div
       ref={container}
-      className="absolute top-0 left-0 w-screen h-screen flex flex-col justify-center items-center p-8"
+      className="hidden absolute top-0 left-0 w-screen h-screen xl:flex flex-col justify-center items-center p-8"
     >
       <div ref={svgContainer} className="mx-auto w-[4.25rem] h-[4.7rem]">
         <svg viewBox="0 0 44 47" fill="none" xmlns="http://www.w3.org/2000/svg">

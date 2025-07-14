@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="leading-none">
       <body suppressHydrationWarning className={`${spectral.variable} antialiased`}>{children}</body>
     </html>
   );
